@@ -141,6 +141,7 @@ helperMod.storeTimeStatistics('Total number of merged blocks', str(blockHandler.
 #print('Time taken to merge block size ' + str(blockSize) + ' is ' + str(end1 - start1) + ' seconds')
 helperMod.storeTimeStatistics('Total time taken to merge all created blocks (in seconds)', str(end1-start1))
 helperMod.storeTimeStatistics('Averge Time taken to merge two blocks (in seconds)', str((end1-start1)/blockHandler.noOfMergedBlocks()))
+helperMod.storeTimeStatistics('Total time taken to create the inverted index (in seconds)', str((end-start)+(end1-start1)))
 print('Time statistics file is created. Please find the file, out_timeStats4BlkSz' + str(blockSize) + '.txt ' + 'under the directory ' + inputPath) 
 
 #5.Deinitialization
