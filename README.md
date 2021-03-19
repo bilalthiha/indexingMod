@@ -13,7 +13,7 @@ Output of the indexing program:
 1. A text file containing the inverted index, which is "out_SPIMI_Output.txt". This file is output in the same directory as the input dataset.
 
 ==========ENVIRONMENT SET-UP=============
-1. Download this indexing package (indexingMod) from GitHub (easy as a zip file) and save it in a preferred directory in your machine (e.g "C:\Test\indexingMod")
+1. Download this indexing package (indexingMod) from GitHub (easy as a zip file). Save and unzip it in a preferred directory in your machine (e.g "C:\Test\indexingMod")
 Note: An example dataset is available in the package as "ExampleDataset.zip" for use.
 2. Install Python 3.8.0 or above from https://www.python.org/downloads/.
 3. Install Natural Language Toolkit from https://www.nltk.org/
