@@ -1,0 +1,8 @@
+SPIMI Block Size : 200000
+Total number of indexed blocks : 12
+Total time taken to index all blocks (in seconds) : 91.32708144187927
+Averge Time taken to index a block (in seconds) : 7.610590120156606
+Total number of merged blocks : 11
+Total time taken to merge all created blocks (in seconds) : 47.76779794692993
+Averge Time taken to merge two blocks (in seconds) : 4.342527086084539
+Total time taken to create the inverted index (in seconds) : 139.0948793888092
