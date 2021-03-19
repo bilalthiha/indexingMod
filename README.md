@@ -1,6 +1,8 @@
 # indexingMod
 This package implements an indexing component of an information retrieval system using SPIMI algorithm.
 
+AUTHOR: Bilal Ansari @ Ye Thi Ha
+
 ==========DESCRIPTION=============
 
 This python program (indexingMod) implements an indexing component of an information retrieval system using SPIMI algorithm. 
