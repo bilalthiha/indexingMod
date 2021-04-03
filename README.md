@@ -12,7 +12,7 @@ Inputs to the indexing program:
 2. Block size for SPMI algorithm. (e.g 50000)
 
 Output of the indexing program:
-1. A text file containing the inverted index, which is "out_invertedIndex.txt". This file is output in the same directory as the input dataset.
+A text file containing the inverted index, which is "out_invertedIndex.txt". This file is output in the same directory as the input dataset. The first element of each posting list is document frequency.
 
 ==========ENVIRONMENT SET-UP=============
 1. Download this indexing package (indexingMod) from GitHub (easy as a zip file). Save and unzip it in a preferred directory in your machine (e.g "C:\Test\indexingMod")
