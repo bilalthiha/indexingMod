@@ -12,7 +12,7 @@ Inputs to the indexing program:
 2. Block size for SPMI algorithm. (e.g 50000)
 
 Output of the indexing program:
-1. A text file containing the inverted index, which is "out_SPIMI_Output.txt". This file is output in the same directory as the input dataset.
+1. A text file containing the inverted index, which is "out_invertedIndex.txt". This file is output in the same directory as the input dataset.
 
 ==========ENVIRONMENT SET-UP=============
 1. Download this indexing package (indexingMod) from GitHub (easy as a zip file). Save and unzip it in a preferred directory in your machine (e.g "C:\Test\indexingMod")
@@ -47,7 +47,7 @@ E.g "python C:\Test\indexingMod\indexingMain.py C:\Test\indexingMod\HillaryEmail
 8. Wait for some time until the program ends. The program will respond on the command line when it ends. It could take up to a few minutes.
 
 9. Find the program output file which contains the inverted index under the same directory as the input dataset.
-E.g "C:\Test\indexingMod\HillaryEmails\out_SPIMI_Output.txt"
+E.g "C:\Test\indexingMod\HillaryEmails\out_invertedIndex.txt"
 
 10. Find the timing statistics file which contains the related timing statistics under the same directory as the input dataset.
 E.g "C:\Test\indexingMod\HillaryEmails\out_timeStats4BlkSz100000
