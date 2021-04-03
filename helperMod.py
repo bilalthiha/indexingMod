@@ -1,5 +1,6 @@
 import glob
 import os
+import ast
 #module global to track previous closing bracket (])
 isPrevCB = False
 #global for misc file names
@@ -65,6 +66,60 @@ def prettyPrintDictFile(srcDictFileName, descPrettyFileName):
         finFile.write(modItem)
     dictFile.close()
     finFile.close()
+    
+def printOutputFile(srcFileName, descFileName):
+    curLine = 'init'
+        
+    inFile = open(srcFileName, 'r', encoding ='utf-8')
+    outFile = open(descFileName, 'a', encoding ='utf-8')
+
+    while(curLine != ''):
+        term = ''
+        frequency = 0
+        docIdListRaw = []
+        docIdList = []
+        prevId = -1 #invalid doc Id num for initialization
+        freqDocIdList = []
+        modLine = ''
+        docIdDict = {}
+        
+        #read a line from the input file
+        curLine = inFile.readline()
+        
+        if (curLine != ''):
+            #get dictionary key
+            term = curLine[:curLine.index(':')]
+            
+            #get doc ID list
+            docIdListRaw = ast.literal_eval(curLine[(curLine.index(':')+ 1):])
+            
+            #parse covert string doc ID list into int doc ID
+            for i in docIdListRaw: 
+                docIdList.append(int(i[:i.index('.txt')]))
+                
+            #count docIds (doc frequency) and unique-fy docIds
+            for j in docIdList:
+                if j in docIdDict.keys():
+                    docIdDict[j] = docIdDict[j] + 1
+                else:
+                    docIdDict[j] = 1
+
+            for k in docIdDict.keys():
+                freqDocIdList.append(k)
+
+            for v in docIdDict.values():
+                frequency += v                
+                
+                
+            #doc frequency is index 0
+            freqDocIdList.insert(0, frequency)
+            
+            #prepare and write line to output file
+            modLine = term + ':' + str(freqDocIdList) + '\n'
+            outFile.write(modLine)
+            
+    inFile.close()
+    outFile.close()
 
 def cleanPrevOutputFiles():
     flName2Del = ''

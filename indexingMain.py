@@ -124,11 +124,15 @@ blockHandler.mergeBlockFiles()
 end1 = time.time()
 
 
-#3.Pretty print Output Inverted Index file
-helperMod.prettyPrintDictFile('out_SPIMI_Output_Raw.txt', 'out_SPIMI_Output.txt')
-print('Inverted index is created. Please find it in the file, out_SPIMI_Output.txt under the directory ' + inputPath) 
+#3.Pretty print Output Dictionary file
+helperMod.prettyPrintDictFile('out_SPIMI_Output_Raw.txt', 'out_SPIMI_Output_Inter.txt')
+#print('Inverted index is created. Please find it in the file, out_SPIMI_Output.txt under the directory ' + inputPath) 
 
-#4.Output time statistics file
+#4. Pretty print Output Inverted Index file
+helperMod.printOutputFile('out_SPIMI_Output_Inter.txt', 'out_invertedIndex.txt')
+print('Inverted index is created. Please find it in the file, out_invertedIndex.txt under the directory ' + inputPath) 
+
+#5.Output time statistics file
 #print('Time taken to index block size ' + str(blockSize) + ' is ' + str(end - start) + ' seconds')
 #indexing blocks
 helperMod.initTimeStatsFile(str(blockSize))
