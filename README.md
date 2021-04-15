@@ -13,6 +13,7 @@ Inputs to the indexing program:
 
 Output of the indexing program:
 A text file containing the inverted index, which is "out_invertedIndex.txt". This file is output in the same directory as the input dataset. The first element of each posting list is document frequency.
+Note: out_invertedIndexForRanking.txt is also output together for ranked serach.
 
 ==========ENVIRONMENT SET-UP=============
 1. Download this indexing package (indexingMod) from GitHub (easy as a zip file). Save and unzip it in a preferred directory in your machine (e.g "C:\Test\indexingMod")
@@ -48,6 +49,7 @@ E.g "python C:\Test\indexingMod\indexingMain.py C:\Test\indexingMod\HillaryEmail
 
 9. Find the program output file which contains the inverted index under the same directory as the input dataset.
 E.g "C:\Test\indexingMod\HillaryEmails\out_invertedIndex.txt"
+Note: out_invertedIndexForRanking.txt is also output together for ranked serach.
 
 10. Find the timing statistics file which contains the related timing statistics under the same directory as the input dataset.
 E.g "C:\Test\indexingMod\HillaryEmails\out_timeStats4BlkSz100000
