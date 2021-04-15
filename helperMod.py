@@ -67,7 +67,7 @@ def prettyPrintDictFile(srcDictFileName, descPrettyFileName):
     dictFile.close()
     finFile.close()
     
-def printOutputFile(srcFileName, descFileName):
+def printOutputFile(srcFileName, descFileName): #document frequency + unique docIds [doc_freq, docId1, docId2, ... , docIdN]
     curLine = 'init'
         
     inFile = open(srcFileName, 'r', encoding ='utf-8')
@@ -111,6 +111,61 @@ def printOutputFile(srcFileName, descFileName):
                 frequency += v                
                 
                 
+            #doc frequency is index 0
+            freqDocIdList.insert(0, frequency)
+            
+            #prepare and write line to output file
+            modLine = term + ':' + str(freqDocIdList) + '\n'
+            outFile.write(modLine)
+            
+    inFile.close()
+    outFile.close()
+    
+def printOutputFileForRanking(srcFileName, descFileName, docSize): #document frequency + unique <termFreq, docId> pairs [doc_freq, termFreq1, docId1, termFreq2, docId2, ... , termFreqN, docIdN]
+    curLine = 'init'
+        
+    inFile = open(srcFileName, 'r', encoding ='utf-8')
+    outFile = open(descFileName, 'a', encoding ='utf-8')
+    outFile.write('Total documents:' + docSize + '\n')
+
+    while(curLine != ''):
+        term = ''
+        frequency = 0
+        docIdListRaw = []
+        docIdList = []
+        prevId = -1 #invalid doc Id num for initialization
+        freqDocIdList = []
+        modLine = ''
+        docIdDict = {}
+        
+        #read a line from the input file
+        curLine = inFile.readline()
+        
+        if (curLine != ''):
+            #get dictionary key
+            term = curLine[:curLine.index(':')]
+            
+            #get doc ID list
+            docIdListRaw = ast.literal_eval(curLine[(curLine.index(':')+ 1):])
+            
+            #parse covert string doc ID list into int doc ID
+            for i in docIdListRaw: 
+                docIdList.append(int(i[:i.index('.txt')]))
+                
+            #count docIds (doc frequency) and unique-fy docIds
+            for j in docIdList:
+                if j in docIdDict.keys():
+                    docIdDict[j] = docIdDict[j] + 1
+                else:
+                    docIdDict[j] = 1
+
+            for k,v in docIdDict.items():                
+                freqDocIdList.append(v) #append term frequency for each docId
+                freqDocIdList.append(k)
+
+            for v in docIdDict.values():                
+                frequency += v     
+            
             #doc frequency is index 0
             freqDocIdList.insert(0, frequency)
             

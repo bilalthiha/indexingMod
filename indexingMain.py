@@ -111,6 +111,7 @@ helperMod.initWorkingDir(inputPath)
 helperMod.cleanPrevOutputFiles()
 #Initialise tokenStreamer
 tokenStreamer.initTokenStreamer(helperMod.getWorkingDir())
+docSize = tokenStreamer.getDocSize(inputPath)
 
 #1.Get tokens, index and store in blocks
 start = time.time()
@@ -128,11 +129,15 @@ end1 = time.time()
 helperMod.prettyPrintDictFile('out_SPIMI_Output_Raw.txt', 'out_SPIMI_Output_Inter.txt')
 #print('Inverted index is created. Please find it in the file, out_SPIMI_Output.txt under the directory ' + inputPath) 
 
-#4. Pretty print Output Inverted Index file
+#4. Print Output Inverted Index file
 helperMod.printOutputFile('out_SPIMI_Output_Inter.txt', 'out_invertedIndex.txt')
 print('Inverted index is created. Please find it in the file, out_invertedIndex.txt under the directory ' + inputPath) 
 
-#5.Output time statistics file
+#5. Print Output Inverted Index file for ranking
+helperMod.printOutputFileForRanking('out_SPIMI_Output_Inter.txt', 'out_invertedIndexForRanking.txt', str(docSize))
+print('Inverted index for ranking is created. Please find it in the file, out_invertedIndexForRanking.txt under the directory ' + inputPath) 
+
+#Output time statistics file
 #print('Time taken to index block size ' + str(blockSize) + ' is ' + str(end - start) + ' seconds')
 #indexing blocks
 helperMod.initTimeStatsFile(str(blockSize))

@@ -18,6 +18,11 @@ def getFileList(inPath):
     flList = os.listdir(inPath)
     #flList = glob.glob("*.txt")
     return flList
+    
+def getDocSize(inPath):
+    fList = os.listdir(inPath)
+    #flList = glob.glob("*.txt")
+    return len(fList)
 
 def initTokenStreamer(inPath):    
     #initialise and sort file list
